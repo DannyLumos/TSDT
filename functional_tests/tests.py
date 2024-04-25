@@ -52,7 +52,7 @@ class NewVisitorTest(LiveServerTestCase):
         # 他按了回车键键后，页面更新了
         # 待办事项表格中显示了“1:Buy flowers”
         inputbox.send_keys(Keys.ENTER)
-        self.check_for_row_in_list_table('1: Buy flowers')
+        self.wait_for_row_in_list_table('1: Buy flowers')
 
         # 页面中又显示了一个文本输入框，可以输入其他待办事项
         # 他输入了“Send a gift to Lisi”
@@ -61,8 +61,8 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox.send_keys(Keys.ENTER)
 
         # 页面再次更新，她的清单中显示了这两个待办事项
-        self.check_for_row_in_list_table('1: Buy flowers')
-        self.check_for_row_in_list_table('2: Give a gift to Lisi')
+        self.wait_for_row_in_list_table('1: Buy flowers')
+        self.wait_for_row_in_list_table('2: Give a gift to Lisi')
 
         # 他满意的离开了
 
